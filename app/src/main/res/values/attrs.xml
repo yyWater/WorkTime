@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ViewSponge">
+        <attr name="shrinkWidth" format="float" />
+        <attr name="shrinkHeight" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewCircle">
+        <attr name="android:src" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="strokeColorActive" format="color" />
+        <attr name="strokeColorNormal" format="color" />
+        <attr name="strokeType" format="integer">
+            <enum name="dot" value="0" />
+            <enum name="arc" value="1" />
+        </attr>
+        <attr name="strokeCount" format="integer" />
+        <attr name="strokeBegin" format="integer" />
+        <attr name="strokeEnd" format="integer" />
+        <attr name="fillColor" format="color" />
+        <attr name="fillDarker" format="boolean" />
+        <attr name="crossWidth" format="dimension" />
+        <attr name="crossColor" format="color" />
+        <attr name="crossRatio" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="ListLinearLayout">
+        <attr name="divideLine" format="reference|color" />
+        <attr name="listSelector" format="reference|color" />
+        <attr name="dividerHeight" format="reference|dimension" />
+        <attr name="footerDividersEnabled" format="boolean" />
+        <attr name="headerDividersEnabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewCalendar">
+        <attr name="android:textSize" />
+        <attr name="android:textStyle" />
+        <attr name="android:textColor" />
+        <attr name="weekNameColor" format="color" />
+        <attr name="todayColor" format="color" />
+        <attr name="focusColor" format="color" />
+        <attr name="focusBackgroundColor" format="color" />
+        <attr name="exceedColor" format="color" />
+        <attr name="todayBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewCalendarSelector">
+        <attr name="android:textSize" />
+        <attr name="android:textStyle" />
+        <attr name="android:textColor" />
+        <attr name="calendarMode" format="enum">
+            <enum name="year" value="0" />
+            <enum name="month" value="1" />
+            <enum name="week" value="2" />
+            <enum name="day" value="3" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ViewCalendarDaily">
+        <attr name="android:layout_gravity" />
+        <attr name="start_hour" format="integer" />
+        <attr name="start_minute" format="integer" />
+        <attr name="end_hour" format="integer" />
+        <attr name="end_minute" format="integer" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewShape">
+        <attr name="color" format="color" />
+        <attr name="shape" format="enum">
+            <enum name="circle" value="0" />
+            <enum name="rectangle" value="1" />
+            <enum name="triangle_top" value="2" />
+            <enum name="triangle_bottom" value="3" />
+            <enum name="triangle_left" value="4" />
+            <enum name="triangle_right" value="5" />
+        </attr>
+        <attr name="desiredSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewChart">
+        <attr name="chartColor" format="color" />
+        <attr name="chartWidth" format="dimension" />
+        <attr name="chartTextColor" format="color" />
+        <attr name="chartTextSize" format="dimension" />
+        <attr name="chartTextStyle" format="integer" />
+        <attr name="chartTitleTextSize" format="dimension" />
+        <attr name="nodeColor" format="color" />
+        <attr name="nodeSize" format="dimension" />
+        <attr name="axisColor" format="color" />
+        <attr name="axisWidth" format="dimension" />
+        <attr name="axisTextSize" format="dimension" />
+        <attr name="axisTextColor" format="color" />
+        <attr name="axisTextStyle" format="integer" />
+        <attr name="axisHEnabled" format="boolean" />
+        <attr name="axisHMax" format="float" />
+        <attr name="axisHMin" format="float" />
+        <attr name="axisVEnabled" format="boolean" />
+        <attr name="axisVMax" format="float" />
+        <attr name="axisVMin" format="float" />
+        <attr name="goalColor" format="color" />
+        <attr name="goalText" format="reference|string" />
+        <attr name="titleText" format="reference|string" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewDotIndicator">
+        <attr name="dotColorOn" format="color" />
+        <attr name="dotColorOff" format="color" />
+        <attr name="dotCount" format="integer" />
+        <attr name="dotPosition" format="integer" />
+        <attr name="dotSize" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewTextSelector">
+        <attr name="android:textSize" />
+        <attr name="android:textStyle" />
+        <attr name="android:textColor" />
+        <attr name="selectorColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewBorderButton">
+        <attr name="floorColor" format="color" />
+        <attr name="borderColor" format="color" />
+        <attr name="borderWidth" format="dimension" />
+    </declare-styleable>
+</resources>

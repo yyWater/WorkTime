@@ -3,4 +3,72 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="color_white">#FFFFFF</color>
+    <color name="color_white_">#CCFFFFFF</color>
+    <color name="color_white_snow">#FFFAFA</color>
+
+    <color name="color_black">#000000</color>
+
+    <color name="color_gray">#808080</color>
+    <color name="color_gray_light">#CCCCCC</color>
+    <color name="color_gray_deep">#404040</color>
+    <color name="color_gray_main">#9A989A</color>
+    <color name="color_gray_main_2">#999899</color>
+
+    <color name="color_red">#FF4040</color>
+    <color name="color_red_light">#FF6060</color>
+    <color name="color_red_deep">#FF2020</color>
+    <color name="color_red_main">#F54A7E</color>
+
+    <color name="color_blue">#4040FF</color>
+    <color name="color_blue_light">#6060FF</color>
+    <color name="color_blue_light2">#4DC1DF</color>
+    <color name="color_blue_deep">#2020FF</color>
+    <color name="color_blue_sky">#CCEEF7</color>
+    <color name="color_blue_main">#7572C1</color>
+
+    <color name="color_green">#40FF40</color>
+    <color name="color_green_light">#60FF60</color>
+    <color name="color_green_deep">#20FF20</color>
+    <color name="color_green_main">#00C4B3</color>
+
+    <color name="color_yellow">#FFFF00</color>
+    <color name="color_yellow_light">#FFFFE0</color>
+    <color name="color_yellow_main">#FAD13E</color>
+
+    <color name="color_orange">#FFA500</color>
+    <color name="color_orange_light">#FFE4C4</color>
+    <color name="color_orange_deep">#FF4500</color>
+    <color name="color_orange_gold">#FFD700</color>
+    <color name="color_orange_main">#FF7231</color>
+
+    <color name="color_pink_light">#FFC0CB</color>
+    <color name="color_pink">#FF69B4</color>
+    <color name="color_pink_deep">#FF00FF</color>
+
+    <color name="color_brown">#8B4513</color>
+
+    <color name="transparent">#00000000</color>
+    <color name="ik_common_font_paragraph_main">#ff9d9d9d</color>
+    <color name="ik_common_main_normal">#ff37b059</color>
+    <color name="ik_common_main_pressed">#ff2c984a</color>
+    <color name="tab_text_focused">#0564A8</color>
+
+    <color name="hex_9c9c9c">#FF9C9C9C</color>
+    <color name="hex_1b89cd">#FF1B89CD</color>
+    <color name="request_arrow_color">#54C4E0</color>
+
+    <color name="pop_window_background">#E0A1A9AB</color>
+    <color name="profile_logout_confirm_name">#14C0BD</color>
+    <color name="profile_name_color">#00C4B3</color>
+    <color name="color_edit_hint_color">#9E9E9E</color>
+    <color name="emotion_mask_color">#99FFFFFF</color>
+    <drawable name="title_bar_bg">#FFFCFCFC</drawable>
+
+    <color name="ik_common_line_c">#F1F1F2</color>
+    <color name="introduction_layout_bg">#df868BCB</color>
+    <color name="profile_label_color">#5EC7E2</color>
+
+    <color name="chart_goal">#EE1E23</color>
 </resources>

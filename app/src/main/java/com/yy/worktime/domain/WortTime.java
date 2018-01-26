@@ -1,4 +1,4 @@
-package com.yy.woktime.domain;
+package com.yy.worktime.domain;
 
 
 import com.raizlabs.android.dbflow.sql.language.SQLite;

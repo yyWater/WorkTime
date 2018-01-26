@@ -8,4 +8,42 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="textview_toolbar">
+        <item name="android:textColor">@color/color_orange_main</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="button_main">
+        <item name="android:layout_height">@dimen/base_35</item>
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/main_button_background</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="calendar_selector">
+        <item name="android:textColor">@color/color_orange_main</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="exceedColor">@color/color_gray_deep</item>
+        <item name="todayColor">@color/color_orange_main</item>
+    </style>
+
+
+    <style name="calendar_week">
+        <item name="android:textColor">@color/color_gray_deep</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="exceedColor">@color/color_gray_light</item>
+        <item name="focusBackgroundColor">@color/color_gray</item>
+        <item name="todayBackgroundColor">@color/color_orange_main</item>
+        <item name="focusColor">@color/color_white</item>
+        <item name="todayColor">@color/color_white</item>
+        <item name="weekNameColor">@color/color_orange_main</item>
+    </style>
 </resources>

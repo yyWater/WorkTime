@@ -1,0 +1,86 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <dimen name="multiplex_title_bar_height">48.0dip</dimen>
+
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    
+    <integer name="console_height_denominator">12</integer>
+    <integer name="toolbar_height_denominator">12</integer>
+    <integer name="icon_size_denominator">12</integer>
+
+    <integer name="contact_label_denominator">12</integer>
+
+    <dimen name="calendar_alarm_line_denominator">40dp</dimen>
+    <dimen name="calendar_alarm_separator_denominator">1dp</dimen>
+
+    <!-- 基础字体大小 -->
+    <dimen name="title_18">18sp</dimen>
+    <dimen name="head_16">16sp</dimen>
+    <dimen name="body1_14">14sp</dimen>
+    <dimen name="body1_12">12sp</dimen>
+    <dimen name="body1_13">13sp</dimen>
+    <dimen name="body1_15">15sp</dimen>
+    <dimen name="body1_18">18sp</dimen>
+    <dimen name="body2_12">12sp</dimen>
+    <dimen name="body2_13">13sp</dimen>
+    <dimen name="body2_14">14sp</dimen>
+
+    <!--一些基础数值-->
+    <dimen name="base_1">1dp</dimen>
+    <dimen name="base_2">2dp</dimen>
+    <dimen name="base_3">3dp</dimen>
+    <dimen name="base_4">4dp</dimen>
+    <dimen name="base_5">5dp</dimen>
+    <dimen name="base_6">6dp</dimen>
+    <dimen name="base_7">7dp</dimen>
+    <dimen name="base_8">8dp</dimen>
+    <dimen name="base_9">9dp</dimen>
+    <dimen name="base_10">10dp</dimen>
+    <dimen name="base_11">11dp</dimen>
+    <dimen name="base_12">12dp</dimen>
+    <dimen name="base_13">13dp</dimen>
+    <dimen name="base_14">14dp</dimen>
+    <dimen name="base_15">15dp</dimen>
+    <dimen name="base_17">17dp</dimen>
+    <dimen name="base_18">18dp</dimen>
+    <dimen name="base_20">20dp</dimen>
+    <dimen name="base_21">21dp</dimen>
+    <dimen name="base_25">25dp</dimen>
+    <dimen name="base_26">26dp</dimen>
+    <dimen name="base_29">29dp</dimen>
+    <dimen name="base_30">30dp</dimen>
+    <dimen name="base_35">35dp</dimen>
+    <dimen name="base_37">37dp</dimen>
+    <dimen name="base_40">40dp</dimen>
+    <dimen name="base_44">44dp</dimen>
+    <dimen name="base_46">46dp</dimen>
+    <dimen name="base_48">48dp</dimen>
+    <dimen name="base_51">51dp</dimen>
+    <dimen name="base_56">56dp</dimen>
+    <dimen name="base_57">57dp</dimen>
+    <dimen name="base_60">60dp</dimen>
+    <dimen name="base_65">65dp</dimen>
+    <dimen name="base_88">88dp</dimen>
+    <dimen name="base_79">79dp</dimen>
+    <dimen name="base_150">150dp</dimen>
+    <dimen name="base_200">200dp</dimen>
+
+
+    <dimen name="news_item_image_width">101dp</dimen>
+
+    <!--横线和竖线-->
+    <dimen name="line">1px</dimen>
+    <dimen name="line2">2px</dimen>
+
+    <dimen name="slipBtn_width">48dp</dimen>
+    <dimen name="slipBtn_height">20dp</dimen>
+
+    <dimen name="tab_num_margin_right">-7.0dip</dimen>
+    <dimen name="tab_num_margin_top">-4.0dip</dimen>
+
+    <dimen name="profile_item_height">48dp</dimen>
+    <dimen name="profile_kids_horizontal_layout_height">65dp</dimen>
+    <dimen name="profile_edit_padding_StartEnd">40dp</dimen>
+</resources>
