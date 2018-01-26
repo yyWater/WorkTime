@@ -5,4 +5,10 @@
     <string name="extent_time_label">加班时长(小时)：</string>
     <string name="commit">加班</string>
     <string name="month_total_extend_time">月总时长：%d</string>
+    <string name="extend_time_invalid">时长不合法</string>
+    <string name="extend_time_save_ok">保存成功</string>
+    <string name="extend_time_save_fail">保存失败，请重试</string>
+    <string name="title_extend_time">加班统计</string>
+
+
 </resources>

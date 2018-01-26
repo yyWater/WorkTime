@@ -1,10 +1,11 @@
-package com.yy.woktime.db;
+package com.yy.worktime.db;
 
 
 import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
+import com.yy.woktime.db.AppDatabase;
 
 /**
  * <br>author: wzg@xdja.com <br/>
@@ -13,9 +14,10 @@ import com.raizlabs.android.dbflow.structure.BaseModel;
 
 @Table(database = AppDatabase.class)
 public class ExtendTime extends BaseModel {
-    @PrimaryKey(autoincrement = true)//主键 autoincrement 开启自增
-    public int id;
+   /* @PrimaryKey(autoincrement = true)//主键 autoincrement 开启自增
+    public int id;*/
 
+    @PrimaryKey
     @Column
     public long date;//日期--毫秒值
 

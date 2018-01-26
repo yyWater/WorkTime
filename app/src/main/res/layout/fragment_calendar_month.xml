@@ -1,126 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <include layout="@layout/base_title_bar"/>
+    <include layout="@layout/base_title_bar" />
 
-    <RelativeLayout
+    <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:paddingEnd="10dp"
-        android:paddingStart="10dp">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-        <com.yy.worktime.view.calendar.ViewCalendarSelector
-            android:id="@+id/calendar_month_selector"
-            style="@style/calendar_selector"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/base_56"
-            android:layout_marginRight="@dimen/base_56"
-            app:calendarMode="month"/>
-    </RelativeLayout>
+            android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_weight="12">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:paddingEnd="10dp"
+                android:paddingStart="10dp">
 
+                <com.yy.worktime.view.calendar.ViewCalendarSelector
+                    android:id="@+id/calendar_month_selector"
+                    style="@style/calendar_selector"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/base_56"
+                    android:layout_marginRight="@dimen/base_56"
+                    app:calendarMode="month" />
+            </RelativeLayout>
 
-        <com.yy.worktime.view.calendar.ViewCalendarMonth
-            android:id="@+id/calendar_month_calendar"
-            style="@style/calendar_week"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/base_10"
-            android:layout_marginRight="@dimen/base_10"/>
-    </RelativeLayout>
-
-<!--    <View
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>-->
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/base_4">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="12">
 
 
-        <TextView
-            android:id="@+id/tv_month_total_extend_time"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_marginBottom="@dimen/base_4"
-            android:text="@string/month_total_extend_time"/>
+                <com.yy.worktime.view.calendar.ViewCalendarMonth
+                    android:id="@+id/calendar_month_calendar"
+                    style="@style/calendar_week"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/base_10"
+                    android:layout_marginRight="@dimen/base_10" />
+            </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_date_str"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/base_15"
-            android:layout_marginLeft="@dimen/base_65"
-            android:layout_marginRight="@dimen/base_65"
-            android:gravity="center"
-            android:text="2018年1月26日14:08:39"/>
+            <!--    <View
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"/>-->
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingStart="@dimen/base_10"
-            android:paddingEnd="@dimen/base_10">
 
-            <TextView
-                android:id="@+id/tv_extend_time_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginRight="@dimen/base_10"
-                android:gravity="left"
-                android:text="@string/extent_time_label"/>
-
-            <EditText
-                android:id="@+id/ed_extend_time"
-                android:layout_toEndOf="@id/tv_extend_time_label"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:gravity="center"
-                android:hint="3"
-                android:inputType="number"
-                android:lines="1"/>
-        </RelativeLayout>
+                android:layout_marginTop="@dimen/base_4"
+                android:layout_weight="1"
+                android:orientation="vertical">
 
 
+                <TextView
+                    android:id="@+id/tv_month_total_extend_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/base_4"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/month_total_extend_time" />
 
-        <Button
-            android:id="@+id/btn_commit_extend_time"
-            style="@style/button_main"
-            android:layout_width="match_parent"
-            android:layout_marginTop="@dimen/base_4"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="@dimen/base_65"
-            android:layout_marginRight="@dimen/base_65"
-            android:text="@string/commit"/>
+                <TextView
+                    android:id="@+id/tv_date_str"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/base_15"
+                    android:layout_marginLeft="@dimen/base_65"
+                    android:layout_marginRight="@dimen/base_65"
+                    android:gravity="center"
+                    android:text="2018年1月26日14:08:39" />
 
-    </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingEnd="@dimen/base_10"
+                    android:paddingStart="@dimen/base_10">
+
+                    <TextView
+                        android:id="@+id/tv_extend_time_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/base_10"
+                        android:gravity="left"
+                        android:text="@string/extent_time_label" />
+
+                    <EditText
+                        android:id="@+id/ed_extend_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_toEndOf="@id/tv_extend_time_label"
+                        android:gravity="center"
+                        android:hint="3"
+                        android:inputType="number"
+                        android:lines="1" />
+                </RelativeLayout>
 
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/btn_commit_extend_time"
+                    style="@style/button_main"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="@dimen/base_65"
+                    android:layout_marginRight="@dimen/base_65"
+                    android:layout_marginTop="@dimen/base_4"
+                    android:text="@string/commit" />
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+
+        </LinearLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
 
 </LinearLayout>

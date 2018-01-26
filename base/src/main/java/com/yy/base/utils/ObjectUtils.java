@@ -79,4 +79,17 @@ public class ObjectUtils {
         return isDuplicate;
 
     }
+
+    public static boolean isValidInt(String intStr){
+       boolean isValid = false;
+
+       try {
+           Integer.valueOf(intStr);
+           isValid = true;
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+
+       return isValid;
+    }
 }
