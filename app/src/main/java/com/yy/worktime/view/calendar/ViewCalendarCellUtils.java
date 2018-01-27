@@ -50,8 +50,8 @@ public class ViewCalendarCellUtils {
             //计算merge
             int merge = getMerge(eventSize, step, i);
 
-//            canvas.drawCircle(left + merge, rect.bottom + size/2 + radius + gap,radius, paint);
-            canvas.drawCircle(left + merge, rect.bottom + radius + gap,radius, paint);
+            canvas.drawCircle(left + merge, rect.bottom + size/2 + radius + gap,radius, paint);
+//            canvas.drawCircle(left + merge, rect.bottom + radius + gap,radius, paint);
         }
 
 

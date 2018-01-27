@@ -48,8 +48,11 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
     @BindView(R.id.tv_month_total_extend_time)
     protected TextView tv_month_total_extend_time;
 
-    @BindView(R.id.tv_date_str)
-    protected TextView tv_select_date;
+    @BindView(R.id.btn_today_extend_time)
+    protected Button btn_today_extend_time;
+
+    @BindView(R.id.tv_extend_time_label)
+    protected TextView tv_extend_time_label;
 
     @BindView(R.id.ed_extend_time)
     protected EditText editText_extend_time;
@@ -108,7 +111,7 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
             }
         });
 
-        tv_select_date.setText(TimeUtils.formatTimeYearMonthDay(mDefaultDate));
+        tv_extend_time_label.setText(getString(R.string.extent_time_label,TimeUtils.formatTimeMonthDay(mDefaultDate)));
     }
 
     private void initTitleBar() {
@@ -180,7 +183,7 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
                 watchEvent.mStartDate = extendTime.date;
                 watchEvent.mEndDate = extendTime.date;
                 watchEvent.mAlertTimeStamp = extendTime.date;
-                watchEvent.mColor = ColorUtils.colorToString(WatchEvent.ColorList[1]);
+                watchEvent.mColor = ColorUtils.colorToString(WatchEvent.ColorList[3]);
                 mEventList.add(watchEvent);
             }
 
@@ -189,7 +192,14 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
             }
         }
 
-        tv_month_total_extend_time.setText(getString(R.string.month_total_extend_time, monthTotalHours));
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(mViewSelector.getDate());
+
+        tv_month_total_extend_time.setText(
+                getString(R.string.month_total_extend_time,
+                        calendar.get(Calendar.MONTH)+1,
+                        monthTotalHours));
 
     }
 
@@ -206,13 +216,16 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
         @Override
         public void onSelect(ViewCalendarMonth calendar, ViewCalendarCellMonth cell) {
 
-            tv_select_date.setText(TimeUtils.formatTimeYearMonthDay(cell.getDate()));
+//            tv_select_date.setText(TimeUtils.formatTimeYearMonthDay(cell.getDate()));
+            tv_extend_time_label.setText(
+                    getString(R.string.extent_time_label,
+                            TimeUtils.formatTimeMonthDay(cell.getDate())));
 
 
             selectDate = CalendarManager.formatDateTo9Am(cell.getDate());
             Long extend = dateExtendTimeMap.get(selectDate);
             if(extend == null){
-               editText_extend_time.setText("0");
+               editText_extend_time.setText("");
             }else {
                 editText_extend_time.setText(String.valueOf(extend));
             }
@@ -222,8 +235,6 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
 
             //是否已经加班，如果提交过，则按钮显示update；如果未加，显示commit
             //周一到周五，默认是3H，周六，周日默认是7H
-
-
 
 
 
@@ -241,12 +252,21 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
             if(!WortTime.isExtendTimeValid(extendTimeHours)){
                 ToastCommon.makeText(getContext(),R.string.extend_time_invalid);
             }else {
+
+                Integer extendTimeHoursInt = Integer.valueOf(extendTimeHours);
                 ExtendTime extendTime = new ExtendTime();
                 extendTime.date = selectDate;
-                extendTime.extendTimeMs = Integer.valueOf(extendTimeHours) * WortTime.hours;
+                extendTime.extendTimeMs =  extendTimeHoursInt * WortTime.hours;
 
-                boolean save = extendTime.save();
-                if(save){
+                boolean operRes = false;
+                //如果小于零，则认为是删除
+                if(extendTimeHoursInt <= 0){
+                    operRes = extendTime.delete();
+                }else {
+                    operRes = extendTime.save();
+                }
+
+                if(operRes){
                     ToastCommon.makeText(getContext(),R.string.extend_time_save_ok);
                     updateTotalTime();
                 }else {
@@ -258,9 +278,12 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
     };
 
     private void updateTotalTime() {
-        monthTotalHours = WortTime.getTotalExtendTime(mViewCalendar.getDateBegin(), mViewCalendar.getDateEnd());
+        /*monthTotalHours = WortTime.getTotalExtendTime(mViewCalendar.getDateBegin(), mViewCalendar.getDateEnd());
         monthTotalHours = monthTotalHours/WortTime.hours;
-        tv_month_total_extend_time.setText(getString(R.string.month_total_extend_time, monthTotalHours));
+        tv_month_total_extend_time.setText(getString(R.string.month_total_extend_time, monthTotalHours));*/
+
+        loadExtendTimeList(mViewCalendar.getDateBegin(), mViewCalendar.getDateEnd());
+        mViewCalendar.setDate(selectDate);
     }
 
 

@@ -26,12 +26,18 @@ public class TimeUtils {
      * “yyyy-MM-dd”时间格式
      */
     private static String pat3 = "yyyy-MM-dd";
+
+    /**
+     * “MM-dd”时间格式
+     */
+    private static String pat4 = "MM-dd";
     /**
      * 实例化模板对象
      */
     private static SimpleDateFormat sdf1 = new SimpleDateFormat(pat1);
     private static SimpleDateFormat sdf2 = new SimpleDateFormat(pat2);
     private static SimpleDateFormat sdf3 = new SimpleDateFormat(pat3);
+    private static SimpleDateFormat sdf4 = new SimpleDateFormat(pat4);
 
     public static String getTime(long commitDateLong) {
         String commitDate = sdf1.format(commitDateLong);
@@ -158,6 +164,10 @@ public class TimeUtils {
 
     public static String formatTimeYearMonthDay(long date){
         return sdf3.format(date);
+    }
+
+    public static String formatTimeMonthDay(long date){
+        return sdf4.format(date);
     }
 
     public static String getTodayDateString() {

@@ -14,12 +14,65 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs {
+        debug {
+//            storeFile file('../config_file/androidsign.jks')
+            storeFile rootProject.file('config_file/appSign_debug.jks')
+            storePassword 'yy@0127'
+            keyAlias 'yysign'
+            keyPassword 'yy@0127'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+
+        debug{
+            signingConfig signingConfigs.debug
+        }
     }
+
+    // Rename file name of APK which is built by Android Studio
+    applicationVariants.all { variant ->
+
+        def appName = "WorkTime";
+
+        variant.outputs.all{
+            def buildldTypeName =  "${buildType.name}"
+
+            println("buildldTypeName -- " + buildldTypeName)
+
+            if(!buildldTypeName.contains("release")){
+                outputFileName = "${appName}-${variant.name}-${variant.versionName}-${packageTime()}.apk"
+            }else{
+
+                outputFileName = "${appName}-${variant.name}-${variant.versionName}-${packageTime()}.apk"
+            }
+        }
+
+        /*variant.outputs.each { output ->
+            def outputFile = output.outputFile
+            if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                def fileName = "WortTime" +
+                        "_v" + defaultConfig.versionName +
+                        "_build" + defaultConfig.versionCode +
+                        "_" + packageTime() +
+                        "_" + buildType.name +
+                        ".apk"
+                output.outputFile = new File(outputFile.parent, fileName)
+            }
+        }*/
+    }
+
+
+}
+
+def static packageTime() {
+    return new Date().format('yyyyMMdd', TimeZone.getTimeZone("UTC"))
 }
 
 dependencies {

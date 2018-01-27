@@ -59,7 +59,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/base_4"
+                android:layout_marginTop="@dimen/base_6"
                 android:layout_weight="1"
                 android:orientation="vertical">
 
@@ -69,19 +69,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/base_4"
-                    android:layout_weight="1"
                     android:gravity="center"
+                    android:textSize="@dimen/base_15"
                     android:text="@string/month_total_extend_time" />
 
-                <TextView
-                    android:id="@+id/tv_date_str"
+                <Button
+                    android:id="@+id/btn_today_extend_time"
+                    style="@style/button_main"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/base_15"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="@dimen/base_7"
+                    android:layout_marginTop="@dimen/base_7"
                     android:layout_marginLeft="@dimen/base_65"
                     android:layout_marginRight="@dimen/base_65"
                     android:gravity="center"
-                    android:text="2018年1月26日14:08:39" />
+                    android:text="@string/today_extend_time"
+                    android:visibility="gone"/>
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -95,33 +98,33 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentStart="true"
                         android:layout_centerVertical="true"
-                        android:layout_marginRight="@dimen/base_10"
+                        android:layout_marginRight="@dimen/base_4"
                         android:gravity="left"
                         android:text="@string/extent_time_label" />
 
+                    <Button
+                        android:id="@+id/btn_commit_extend_time"
+                        style="@style/button_main"
+                        android:layout_width="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginLeft="@dimen/base_5"
+                        android:layout_marginRight="@dimen/base_5"
+                        android:layout_marginTop="@dimen/base_4"
+                        android:text="@string/commit" />
+
                     <EditText
                         android:id="@+id/ed_extend_time"
-                        android:layout_width="match_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentTop="true"
+                        android:layout_toStartOf="@id/btn_commit_extend_time"
                         android:layout_toEndOf="@id/tv_extend_time_label"
                         android:gravity="center"
-                        android:hint="3"
                         android:inputType="number"
                         android:lines="1" />
                 </RelativeLayout>
 
 
-                <Button
-                    android:id="@+id/btn_commit_extend_time"
-                    style="@style/button_main"
-                    android:layout_width="match_parent"
-                    android:layout_marginBottom="10dp"
-                    android:layout_marginLeft="@dimen/base_65"
-                    android:layout_marginRight="@dimen/base_65"
-                    android:layout_marginTop="@dimen/base_4"
-                    android:text="@string/commit" />
 
             </LinearLayout>
 
