@@ -2,8 +2,10 @@ package com.yy.base.utils;
 
 import android.util.Log;
 
+import java.security.InvalidParameterException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -158,15 +160,15 @@ public class TimeUtils {
         return datetimeDate;
     }
 
-    public static String formatTimeYearMonthDay(Date date){
+    public static String formatTimeYearMonthDay(Date date) {
         return sdf3.format(date);
     }
 
-    public static String formatTimeYearMonthDay(long date){
+    public static String formatTimeYearMonthDay(long date) {
         return sdf3.format(date);
     }
 
-    public static String formatTimeMonthDay(long date){
+    public static String formatTimeMonthDay(long date) {
         return sdf4.format(date);
     }
 
@@ -179,8 +181,39 @@ public class TimeUtils {
 
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format, Locale.getDefault());
 
-        Log.w("time","format: " + simpleDateFormat.format(date));
+        Log.w("time", "format: " + simpleDateFormat.format(date));
 
         return simpleDateFormat.format(date);
     }
+
+    public static boolean isSameMonth(long data0, long date) {
+        Calendar calcThis = Calendar.getInstance();
+        calcThis.setTimeInMillis(data0);
+
+        Calendar calcDate = Calendar.getInstance();
+        calcDate.setTimeInMillis(date);
+
+        if (calcThis.get(Calendar.YEAR) != calcDate.get(Calendar.YEAR))
+            return false;
+        if (calcThis.get(Calendar.MONTH) != calcDate.get(Calendar.MONTH))
+            return false;
+
+        return true;
+
+    }
+
+    public static int compareMonthInNextPrev(long data0, long date){
+        Calendar calcThis = Calendar.getInstance();
+        calcThis.setTimeInMillis(data0);
+
+        Calendar calcDate = Calendar.getInstance();
+        calcDate.setTimeInMillis(date);
+
+        if (calcThis.get(Calendar.YEAR) != calcDate.get(Calendar.YEAR)){
+            throw new InvalidParameterException();
+        }
+
+        return calcThis.get(Calendar.MONTH)-calcDate.get(Calendar.MONTH);
+    }
+
 }

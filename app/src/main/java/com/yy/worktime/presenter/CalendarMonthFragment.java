@@ -3,6 +3,7 @@ package com.yy.worktime.presenter;
 import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
+import android.util.Log;
 import android.util.LongSparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -133,13 +134,7 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
 
     @OnClick(R.id.main_toolbar_action2)
     public void onToolbarAction2() {
-//        WatchEvent event = new WatchEvent(mViewCalendar.getDate());
 
-        /*WatchEvent event = EventManager.getWatchEventForAdd(mViewCalendar.getDate());
-        event.mUserId = currentUserId;
-
-        mainFrameActivity.mEventStack.push(event);
-        selectFragment(CalendarAddEventFragment.class.getName(), null,true);*/
     }
 
     @Override
@@ -154,6 +149,8 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
         monthTotalHours = 0;
 
         loadExtendTimeList(mViewCalendar.getDateBegin(), mViewCalendar.getDateEnd());
+
+
     }
 
     private void loadExtendTimeList(long start, long end) {
@@ -206,10 +203,20 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
     private ViewCalendarSelector.OnSelectListener mSelectorListener = new ViewCalendarSelector.OnSelectListener() {
         @Override
         public void OnSelect(View view, long offset, long date) {
+            Log.w("calendar", "OnSelect date: " + TimeUtils.formatTimeYearMonthDay(date));
+
             mViewCalendar.setDate(date);
-            loadExtendTimeList(mViewCalendar.getDateBegin(), mViewCalendar.getDateEnd());
+            updateUIByMonthChange(date);
         }
     };
+
+    private void updateUIByMonthChange(long date) {
+        loadExtendTimeList(mViewCalendar.getDateBegin(), mViewCalendar.getDateEnd());
+
+        //选中date的时长
+        showSelectDateExtendTime(CalendarManager.formatDateTo9Am(date));
+        mDefaultDate = date;
+    }
 
     //日历中点击具体某天的响应
     private ViewCalendarMonth.OnSelectListener mCalendarListener = new ViewCalendarMonth.OnSelectListener() {
@@ -223,24 +230,54 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
 
 
             selectDate = CalendarManager.formatDateTo9Am(cell.getDate());
-            Long extend = dateExtendTimeMap.get(selectDate);
-            if(extend == null){
-               editText_extend_time.setText("");
-            }else {
-                editText_extend_time.setText(String.valueOf(extend));
-            }
+            showSelectDateExtendTime(selectDate);
 
-            Editable text = editText_extend_time.getText();
-            editText_extend_time.setSelection(text.length());
+            //如果非一个月
+            handleMonthChange();
 
             //是否已经加班，如果提交过，则按钮显示update；如果未加，显示commit
             //周一到周五，默认是3H，周六，周日默认是7H
 
-
-
-//            selectFragment(CalendarDailyFragment.class.getName(), bundle,true);
         }
     };
+
+    private void handleMonthChange(){
+
+        Log.w("calendar", "selectDate: " +
+                TimeUtils.formatTimeYearMonthDay(mViewCalendar.getDateBegin()));
+
+        if (!TimeUtils.isSameMonth(mViewSelector.getDate(), selectDate)) {
+            mViewSelector.setDate(selectDate);
+
+            //这里需要拿到即将显示的monthview的起始终止 date
+            /*Log.w("calendar", "mViewCalendar.getDateBegin(): " +
+                    TimeUtils.formatTimeYearMonthDay(mViewCalendar.getDateBegin()));
+            Log.w("calendar", "mViewCalendar.getDateEnd(): " +
+                    TimeUtils.formatTimeYearMonthDay(mViewCalendar.getDateEnd()));*/
+
+            updateUIByMonthChange(selectDate);
+
+        }
+
+        /*int compareRes = TimeUtils.compareMonthInNextPrev(mViewSelector.getDate(), selectDate);
+        if (compareRes > 0) {
+            mViewSelector.prevMonth();
+        }else if(compareRes < 0){
+            mViewSelector.nextMonth();
+        }*/
+    }
+
+    private void showSelectDateExtendTime(long selectDate) {
+        Long extend = dateExtendTimeMap.get(selectDate);
+        if(extend == null){
+           editText_extend_time.setText("");
+        }else {
+            editText_extend_time.setText(String.valueOf(extend));
+        }
+
+        Editable text = editText_extend_time.getText();
+        editText_extend_time.setSelection(text.length());
+    }
 
     private Button.OnClickListener mOnCommitBtnClickedListener = new Button.OnClickListener() {
         @Override
@@ -269,6 +306,8 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
                 if(operRes){
                     ToastCommon.makeText(getContext(),R.string.extend_time_save_ok);
                     updateTotalTime();
+
+                    hideInput();
                 }else {
                     ToastCommon.makeText(getContext(),R.string.extend_time_save_fail);
                 }

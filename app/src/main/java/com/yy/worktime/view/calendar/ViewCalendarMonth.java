@@ -154,8 +154,15 @@ public class ViewCalendarMonth extends ViewCalendar implements View.OnClickListe
             return;
 
         ViewCalendarCellMonth cell = (ViewCalendarCellMonth) view;
-        mSelectListener.onSelect(mThis, cell);
+
+        //当需要跨月更新时，
+        // 经过 “setDate(cell.getDate());”方法执行后，整个monthView的布局中每个子view的内容会变化
+        ViewCalendarCellMonth selectCellMonth = new ViewCalendarCellMonth(getContext());
+        selectCellMonth.setDate(cell.getDate());
+
         setDate(cell.getDate());
+
+        mSelectListener.onSelect(mThis, selectCellMonth);
     }
 
     public void setOnSelectListener(ViewCalendarMonth.OnSelectListener listener) {
