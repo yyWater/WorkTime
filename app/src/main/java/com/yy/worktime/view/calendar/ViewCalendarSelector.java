@@ -240,7 +240,8 @@ public class ViewCalendarSelector extends ViewCalendar implements View.OnClickLi
         int monthSet = dateSet.get(Calendar.MONTH);
         int daySet = dateSet.get(Calendar.DAY_OF_MONTH);
 
-        if (yearNow == yearSet && monthNow == monthSet && dayNow == daySet)
+        //同一个月即显示todaycolor
+        if (yearNow == yearSet && monthNow == monthSet /*&& dayNow == daySet*/)
             mViewDate.setTextColor(mTodayColor);
         else
             mViewDate.setTextColor(mExceedColor);

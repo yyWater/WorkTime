@@ -154,6 +154,9 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
     }
 
     private void loadExtendTimeList(long start, long end) {
+//        Log.w("calendar", "start: " + TimeUtils.formatTimeYearMonthDay(start));
+//        Log.w("calendar", "end  : " + TimeUtils.formatTimeYearMonthDay(end));
+
         mViewCalendar.delAllEvent();
         dateExtendTimeMap.clear();
         monthTotalHours = 0;
@@ -171,7 +174,14 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
                     allExtendTime) {
 
                 long extendTimeHour = extendTime.extendTimeMs / WortTime.hours;
-                monthTotalHours += extendTimeHour;
+
+                //如果是同一个月才加入统计
+                if(TimeUtils.isSameMonth(selectDate, extendTime.date)){
+
+                    Log.w("calendar", "extendTime.date  : " + TimeUtils.formatTimeYearMonthDay(extendTime.date));
+                    Log.w("calendar", "selectDate  : " + TimeUtils.formatTimeYearMonthDay(selectDate));
+                    monthTotalHours += extendTimeHour;
+                }
 
                 dateExtendTimeMap.put(extendTime.date,extendTimeHour);
 
@@ -211,6 +221,8 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
     };
 
     private void updateUIByMonthChange(long date) {
+        selectDate = CalendarManager.formatDateTo9Am(date);
+
         loadExtendTimeList(mViewCalendar.getDateBegin(), mViewCalendar.getDateEnd());
 
         //选中date的时长
