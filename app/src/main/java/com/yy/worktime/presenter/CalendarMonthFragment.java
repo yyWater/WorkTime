@@ -67,8 +67,8 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
     private long currentKidsId;
 
 //    private HashMap<Long, Long> dateExtendTimeMap = new HashMap<>(31);
-    private LongSparseArray<Long> dateExtendTimeMap = new LongSparseArray<>(31);
-    private long monthTotalHours;
+    private LongSparseArray<Float> dateExtendTimeMap = new LongSparseArray<>(31);
+    private float monthTotalHours;
 
 
     @Override
@@ -173,7 +173,8 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
             for (ExtendTime extendTime :
                     allExtendTime) {
 
-                long extendTimeHour = extendTime.extendTimeMs / WortTime.hours;
+                float extendTimeHour = (float) extendTime.extendTimeMs / WortTime.hours;
+                Log.w("calendar", "extendTimeHour  : " + extendTimeHour);
 
                 //如果是同一个月才加入统计
                 if(TimeUtils.isSameMonth(selectDate, extendTime.date)){
@@ -204,9 +205,15 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
         calendar.setTimeInMillis(mViewSelector.getDate());
 
         tv_month_total_extend_time.setText(
+                getString(R.string.month_total_extend_time_2,
+                        calendar.get(Calendar.MONTH)+1,
+                        WortTime.decimalFormat.format(monthTotalHours)));
+/*
+        tv_month_total_extend_time.setText(
                 getString(R.string.month_total_extend_time,
                         calendar.get(Calendar.MONTH)+1,
                         monthTotalHours));
+*/
 
     }
 
@@ -280,7 +287,7 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
     }
 
     private void showSelectDateExtendTime(long selectDate) {
-        Long extend = dateExtendTimeMap.get(selectDate);
+        Float extend = dateExtendTimeMap.get(selectDate);
         if(extend == null){
            editText_extend_time.setText("");
         }else {
@@ -302,10 +309,15 @@ public class CalendarMonthFragment extends CalendarBaseFragment {
                 ToastCommon.makeText(getContext(),R.string.extend_time_invalid);
             }else {
 
-                Integer extendTimeHoursInt = Integer.valueOf(extendTimeHours);
+//                Integer extendTimeHoursInt = Integer.valueOf(extendTimeHours);
+                Float extendTimeHoursInt = Float.valueOf(extendTimeHours);
+
+
                 ExtendTime extendTime = new ExtendTime();
                 extendTime.date = selectDate;
-                extendTime.extendTimeMs =  extendTimeHoursInt * WortTime.hours;
+
+                Log.w("WorkTime", "extendTime: " + extendTimeHoursInt * WortTime.hours);
+                extendTime.extendTimeMs =  Math.round(extendTimeHoursInt * WortTime.hours);
 
                 boolean operRes = false;
                 //如果小于零，则认为是删除

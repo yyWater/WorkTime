@@ -5,7 +5,7 @@ import com.raizlabs.android.dbflow.annotation.Column;
 import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
-import com.yy.woktime.db.AppDatabase;
+import com.yy.worktime.db.AppDatabase;
 
 /**
  * <br>author: wzg@xdja.com <br/>

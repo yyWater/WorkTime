@@ -4,7 +4,8 @@
     <string name="calendar_day_word" />
     <string name="extent_time_label" formatted="false">%1$s加班(小时)：</string>
     <string name="commit">加班</string>
-    <string name="month_total_extend_time">%1$d月总时长：%2$d</string>
+    <string name="month_total_extend_time">%1$d月总时长：%2$f</string>
+    <string name="month_total_extend_time_2">%1$d月总时长：%2$s</string>
     <string name="extend_time_invalid">时长不合法</string>
     <string name="extend_time_save_ok">保存成功</string>
     <string name="extend_time_save_fail">保存失败，请重试</string>

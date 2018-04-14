@@ -92,4 +92,17 @@ public class ObjectUtils {
 
        return isValid;
     }
+
+    public static boolean isValidFloat(String floatStr){
+       boolean isValid = false;
+
+       try {
+           Float.valueOf(floatStr);
+           isValid = true;
+       }catch (Exception e){
+           e.printStackTrace();
+       }
+
+       return isValid;
+    }
 }

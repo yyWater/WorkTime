@@ -120,7 +120,7 @@
                         android:layout_toStartOf="@id/btn_commit_extend_time"
                         android:layout_toEndOf="@id/tv_extend_time_label"
                         android:gravity="center"
-                        android:inputType="number"
+                        android:inputType="number|numberDecimal"
                         android:lines="1" />
                 </RelativeLayout>
 

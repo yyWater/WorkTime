@@ -11,6 +11,7 @@ import com.yy.base.utils.ObjectUtils;
 import com.yy.worktime.db.ExtendTime;
 import com.yy.worktime.db.ExtendTime_Table;
 
+import java.text.DecimalFormat;
 import java.util.Calendar;
 import java.util.List;
 
@@ -27,9 +28,12 @@ public class WortTime {
     public final static long hours_3 = 3 * 60 * 60;
     public final static long hours_7 = 7 * 60 * 60;
 
+    //格式化小数
+    public static DecimalFormat decimalFormat = new DecimalFormat(".0");
+
     public static boolean isExtendTimeValid(String extendTime){
 
-        return  !TextUtils.isEmpty(extendTime) && ObjectUtils.isValidInt(extendTime);
+        return  !TextUtils.isEmpty(extendTime) && ObjectUtils.isValidFloat(extendTime);
     }
 
     public void saveExtendTime(@NonNull ExtendTime extendTime){

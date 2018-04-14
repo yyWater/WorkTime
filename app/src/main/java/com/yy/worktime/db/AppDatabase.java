@@ -1,4 +1,4 @@
-package com.yy.woktime.db;
+package com.yy.worktime.db;
 
 import com.raizlabs.android.dbflow.annotation.Database;
 

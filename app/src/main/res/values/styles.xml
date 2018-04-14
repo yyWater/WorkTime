@@ -8,6 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!--解决冷启动时白屏问题，设置背景或者Windows为透明-->
+    <style name="SplashTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@drawable/splash</item>
+        <item name="android:windowFullscreen">true</item>
+        <!--<item name="android:windowIsTranslucent">true</item>-->
+    </style>
+
     <style name="textview_toolbar">
         <item name="android:textColor">@color/color_orange_main</item>
         <item name="android:textSize">20sp</item>
